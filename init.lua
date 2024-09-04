@@ -16,6 +16,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Keep signcolumn on by default
+vim.opt.signcolumn = 'yes'
+
 -- Enable mouse
 vim.opt.mouse = 'a'
 
