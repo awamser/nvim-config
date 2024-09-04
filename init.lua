@@ -30,7 +30,9 @@ end)
 
 -- Keymaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})  
+vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
 
 -- Lazy Package Manager
 require("config.lazy")
