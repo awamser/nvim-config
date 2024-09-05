@@ -34,6 +34,13 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+vim.opt.swapfile = false
+
+-- Navigate vim panels with hjkl
+vim.keymap.set('n', '<c-k>', 'wincmd k<CR>')
+vim.keymap.set('n', '<c-j>', 'wincmd j<CR>')
+vim.keymap.set('n', '<c-h>', 'wincmd h<CR>')
+vim.keymap.set('n', '<c-l>', 'wincmd l<CR>')
 
 -- Keymaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
