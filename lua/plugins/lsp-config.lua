@@ -27,10 +27,10 @@ return {
 
         on_attach = function(client, bufnr)
           -- Set tab space to 4 for HTML
-          vim.api.nvim_buf_set_option(bufnr, "tabstop", 4)
-          vim.api.nvim_buf_set_option(bufnr, "shiftwidth", 4)
-          vim.api.nvim_buf_set_option(bufnr, "softtabstop", 2)
-          vim.api.nvim_buf_set_option(bufnr, "expandtab", true)
+          -- vim.api.nvim_buf_set_option(bufnr, "tabstop", 2)
+          -- vim.api.nvim_buf_set_option(bufnr, "shiftwidth", 2)
+          -- vim.api.nvim_buf_set_option(bufnr, "softtabstop", 2)
+          -- vim.api.nvim_buf_set_option(bufnr, "expandtab", true)
         end,
       })
       lspconfig.sourcekit.setup({

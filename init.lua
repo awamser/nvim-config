@@ -28,12 +28,6 @@ vim.opt.breakindent = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Enable line wrapping
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-
 -- Sync clipboard for Os
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
@@ -67,4 +61,4 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- Lazy Package Manager
 require("config.lazy")
--- require("config.options")
+require("config.options")
