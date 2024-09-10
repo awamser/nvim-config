@@ -5,7 +5,6 @@ vim.g.maplocalleader = " "
 -- Nerd Fonts
 vim.g.have_nerd_font = true
 
-
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -17,10 +16,10 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Enable mouse
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -29,31 +28,43 @@ vim.opt.breakindent = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- Enable line wrapping
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
 -- Sync clipboard for Os
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+	vim.opt.clipboard = "unnamedplus"
 end)
 
 vim.opt.swapfile = false
 
+vim.filetype.add({
+	extension = {
+		leaf = "html",
+	},
+})
+
 -- Navigate vim panels with hjkl
-vim.keymap.set('n', '<c-k>', 'wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', 'wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', 'wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', 'wincmd l<CR>')
+vim.keymap.set("n", "<c-k>", "wincmd k<CR>")
+vim.keymap.set("n", "<c-j>", "wincmd j<CR>")
+vim.keymap.set("n", "<c-h>", "wincmd h<CR>")
+vim.keymap.set("n", "<c-l>", "wincmd l<CR>")
 
 -- Keymaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", { noremap = true, silent = true })
 
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Lazy Package Manager
 require("config.lazy")
-require("config.options")
+-- require("config.options")

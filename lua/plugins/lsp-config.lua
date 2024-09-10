@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" },
+        ensure_installed = { "lua_ls", "html" },
       })
     end,
   },
@@ -24,6 +24,14 @@ return {
       })
       lspconfig.html.setup({
         capabilities = capabilities,
+
+        on_attach = function(client, bufnr)
+          -- Set tab space to 4 for HTML
+          vim.api.nvim_buf_set_option(bufnr, "tabstop", 4)
+          vim.api.nvim_buf_set_option(bufnr, "shiftwidth", 4)
+          vim.api.nvim_buf_set_option(bufnr, "softtabstop", 2)
+          vim.api.nvim_buf_set_option(bufnr, "expandtab", true)
+        end,
       })
       lspconfig.sourcekit.setup({
         capabilities = capabilities,
