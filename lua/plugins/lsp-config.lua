@@ -24,14 +24,6 @@ return {
       })
       lspconfig.html.setup({
         capabilities = capabilities,
-
-        on_attach = function(client, bufnr)
-          -- Set tab space to 4 for HTML
-          -- vim.api.nvim_buf_set_option(bufnr, "tabstop", 2)
-          -- vim.api.nvim_buf_set_option(bufnr, "shiftwidth", 2)
-          -- vim.api.nvim_buf_set_option(bufnr, "softtabstop", 2)
-          -- vim.api.nvim_buf_set_option(bufnr, "expandtab", true)
-        end,
       })
       lspconfig.sourcekit.setup({
         capabilities = capabilities,
@@ -40,6 +32,9 @@ return {
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+      vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
     end,
   },
 }
