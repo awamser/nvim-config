@@ -13,9 +13,6 @@ return {
   keys = {
     { "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
   },
-  --config = function()
-  --  vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})
-  --end
   opts = {
     filesystem = {
       window = {
