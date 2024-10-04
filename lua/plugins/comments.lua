@@ -1,12 +1,10 @@
 -- comments
--- https://github.com/numToStr/Comment.nvim_lsp
+-- https://github.com/numToStr/Comment.nvim
 
 return {
   "numToStr/Comment.nvim",
   config = function()
-    -- Swift specific setup
     require("Comment").setup({
-      -- Swift specific setup
       pre_hook = function(ctx)
         local U = require("Comment.utils")
 

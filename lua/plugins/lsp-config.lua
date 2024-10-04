@@ -26,7 +26,14 @@ return {
         capabilities = capabilities,
       })
       lspconfig.sourcekit.setup({
-        capabilities = capabilities,
+        -- capabilities = capabilities,
+        pcapabilities = vim.tbl_extend("force", capabilities, {
+          worksapce = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        }),
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
