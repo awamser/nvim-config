@@ -10,6 +10,16 @@ return {
       auto_install = true,
       highlight = { enable = true },
       indent = { enable = true },
+      context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+        config = {
+          swift = {
+            __default = "// %s",
+            __multiline = "/* %s */",
+          },
+        },
+      },
     })
   end,
 }
