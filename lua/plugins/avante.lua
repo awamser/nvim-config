@@ -4,7 +4,11 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    -- add any opts here
+    provider = "openai",
+    openai_api_key = vim.env.OPENAI_API_KEY,
+    openai_model = "gpt-4o",
+    openai_max_tokens = 2048,
+    openai_temperature = 0.7,
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
