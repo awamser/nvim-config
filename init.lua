@@ -41,23 +41,40 @@ vim.filetype.add({
 	},
 })
 
+local map = vim.keymap.set
+
 -- Navigate vim panels with hjkl
-vim.keymap.set("n", "<c-k>", "wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", "wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", "wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", "wincmd l<CR>")
+map("n", "<c-k>", "wincmd k<CR>")
+map("n", "<c-j>", "wincmd j<CR>")
+map("n", "<c-h>", "wincmd h<CR>")
+map("n", "<c-l>", "wincmd l<CR>")
 
 -- Keymaps
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
--- vim.keymap.set('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})
+map("n", "<leader>pv", vim.cmd.Ex)
+map('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", { noremap = true, silent = true })
 
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- nvim DAP
+map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
+map("n", "<Leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
+map("n", "<Leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugger step out" })
+map("n", "<Leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
+map("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
+map("n", "<Leader>dd", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+	{ desc = "Debugger set conditional breakpoint" }
+)
+map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
+map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
+
+-- rustaceanvim
+map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
 
 -- Lazy Package Manager
 require("config.lazy")

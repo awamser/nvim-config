@@ -9,6 +9,10 @@ git clone https://github.com/awamser/nvim-config.git "${XDG_CONFIG_HOME:-$HOME/.
  1. Linter -> eslint_d
  2. Formatter -> prettier, stylua 
 
+### Rust - Mason
+    :MasonInstall rust-analyzer
+    :MasonInstall codelldb
+
 
 ### tmux stuff
 
