@@ -28,8 +28,9 @@ return {
       })
 
       lspconfig.sourcekit.setup({
+        filetypes = { "swift", "objc", "objcpp", "cuda", "proto" },
         -- capabilities = capabilities,
-        pcapabilities = vim.tbl_extend("force", capabilities, {
+        capabilities = vim.tbl_extend("force", capabilities, {
           worksapce = {
             didChangeWatchedFiles = {
               dynamicRegistration = true,
