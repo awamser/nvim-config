@@ -16,7 +16,6 @@ git clone https://github.com/awamser/nvim-config.git "${XDG_CONFIG_HOME:-$HOME/.
 
 ### tmux stuff
 
-
 ```
 
 unbind r
@@ -78,4 +77,14 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ```
 https://github.com/catppuccin/tmux
+```
+
+### SwiftLint Errors
+```
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```
+
+### RipGrep
+```
+brew install ripgrep
 ```
