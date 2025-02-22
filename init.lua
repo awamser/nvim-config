@@ -49,6 +49,9 @@ map("n", "<c-j>", "wincmd j<CR>")
 map("n", "<c-h>", "wincmd h<CR>")
 map("n", "<c-l>", "wincmd l<CR>")
 
+-- Navigate insert mode with jk 
+map("i", "jj", "<ESC>", { noremap = false })
+
 -- Keymaps
 map("n", "<leader>pv", vim.cmd.Ex)
 map('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})
