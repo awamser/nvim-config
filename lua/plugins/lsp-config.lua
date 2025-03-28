@@ -27,19 +27,19 @@ return {
 				capabilities = capabilities,
 			})
 
-			lspconfig.rust_analyzer.setup({
-				settings = {
-					["rust-analyzer"] = {
-						procMacro = {
-							ignored = {
-								leptos_macro = {
-									"server",
-								},
-							},
-						},
-					},
-				},
-			})
+			-- lspconfig.rust_analyzer.setup({
+			-- 	settings = {
+			-- 		["rust-analyzer"] = {
+			-- 			procMacro = {
+			-- 				ignored = {
+			-- 					leptos_macro = {
+			-- 						"server",
+			-- 					},
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
 
 			lspconfig.sourcekit.setup({
 				filetypes = { "swift", "objc", "objcpp", "cuda", "proto" },
