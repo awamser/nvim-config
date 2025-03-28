@@ -17,6 +17,26 @@ return {
 			dap = {
 				adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
 			},
+			server = {
+				on_attach = function(_, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({ async = false })
+						end,
+					})
+				end,
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              command = "clippy",
+            },
+            cargo = {
+              allFeatures = true,
+            },
+          },
+        }
+			},
 		}
 	end,
 }
