@@ -27,26 +27,6 @@ return {
 				capabilities = capabilities,
 			})
 
-			-- lspconfig.rust_analyzer.setup({
-			-- 	settings = {
-			-- 		["rust-analyzer"] = {
-			-- 			cargo = {
-			-- 				allFeatures = true,
-			-- 			},
-   --          checkOnSave = {
-   --            command = "clippy",
-   --          },
-			-- 			procMacro = {
-			-- 				ignored = {
-			-- 					leptos_macro = {
-			-- 						"server",
-			-- 					},
-			-- 				},
-			-- 			},
-			-- 		},
-			-- 	},
-			-- })
-
 			lspconfig.sourcekit.setup({
 				filetypes = { "swift", "objc", "objcpp", "cuda", "proto" },
 				-- capabilities = capabilities,

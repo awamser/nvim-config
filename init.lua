@@ -4,10 +4,24 @@ vim.g.maplocalleader = " "
 
 -- Nerd Fonts
 vim.g.have_nerd_font = true
+vim.opt.termguicolors = true
 
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 50
+-- vim.opt.colorcolumn = "120"
+
+-- tab settings
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+-- Undo settings
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 -- Show which line cursor is on
 vim.opt.cursorline = true
@@ -49,12 +63,12 @@ map("n", "<c-j>", "wincmd j<CR>")
 map("n", "<c-h>", "wincmd h<CR>")
 map("n", "<c-l>", "wincmd l<CR>")
 
--- Navigate insert mode with jk 
+-- Navigate insert mode with jk
 map("i", "jj", "<ESC>", { noremap = false })
 
 -- Keymaps
 map("n", "<leader>pv", vim.cmd.Ex)
-map('n', '<leader>e', ':Neotree reveal<CR>', {silent = true})
+map("n", "<leader>e", ":Neotree reveal<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", { noremap = true, silent = true })
 
@@ -70,7 +84,10 @@ map("n", "<Leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugg
 map("n", "<Leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugger step out" })
 map("n", "<Leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
 map("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
-map("n", "<Leader>dd", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+map(
+	"n",
+	"<Leader>dd",
+	"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
 	{ desc = "Debugger set conditional breakpoint" }
 )
 map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
@@ -84,7 +101,12 @@ map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "De
 
 -- create keymapping for floating terminal
 map("n", "<Leader>ft", ":FloatermNew<CR>", { noremap = true, silent = true, desc = "Toggle floating terminal" })
-map("t", "<Leader>ft", "<C-\\><C-n>:FloatermNew<CR>", { noremap = true, silent = true, desc = "Toggle floating terminal" })
+map(
+	"t",
+	"<Leader>ft",
+	"<C-\\><C-n>:FloatermNew<CR>",
+	{ noremap = true, silent = true, desc = "Toggle floating terminal" }
+)
 
 -- Lazy Package Manager
 require("config.lazy")
