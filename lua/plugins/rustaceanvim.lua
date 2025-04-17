@@ -13,6 +13,15 @@ vim.g.rustaceanvim = {
 					command = "clippy",
 					extraArgs = { "--no-deps" },
 				},
+        files = {
+          excludeDirs = { 
+            ".direnv",
+            ".git",
+            "bin",
+            "target",
+            "node_modules",
+          },
+        },
 				inlayHints = { maxLength = 100 },
 				-- procMacro = { ignored = { leptos_macro = { "component", "server" } } },
 				workspace = { symbol = { search = { kind = "all_symbols" } } },
