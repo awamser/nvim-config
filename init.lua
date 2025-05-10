@@ -44,15 +44,15 @@ vim.opt.splitbelow = true
 
 -- Sync clipboard for Os
 vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
+	vim.opt.clipboard = "unnamedplus"
 end)
 
 vim.opt.swapfile = false
 
 vim.filetype.add({
-  extension = {
-    leaf = "html",
-  },
+	extension = {
+		leaf = "html",
+	},
 })
 
 local map = vim.keymap.set
@@ -85,10 +85,10 @@ map("n", "<Leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugge
 map("n", "<Leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
 map("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
 map(
-  "n",
-  "<Leader>dd",
-  "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-  { desc = "Debugger set conditional breakpoint" }
+	"n",
+	"<Leader>dd",
+	"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+	{ desc = "Debugger set conditional breakpoint" }
 )
 map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
 map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
@@ -102,10 +102,10 @@ map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "De
 -- create keymapping for floating terminal
 map("n", "<Leader>ft", ":FloatermNew<CR>", { noremap = true, silent = true, desc = "Toggle floating terminal" })
 map(
-  "t",
-  "<Leader>ft",
-  "<C-\\><C-n>:FloatermNew<CR>",
-  { noremap = true, silent = true, desc = "Toggle floating terminal" }
+	"t",
+	"<Leader>ft",
+	"<C-\\><C-n>:FloatermNew<CR>",
+	{ noremap = true, silent = true, desc = "Toggle floating terminal" }
 )
 
 -- Lazy Package Manager
