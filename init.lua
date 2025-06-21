@@ -108,6 +108,9 @@ map(
 	{ noremap = true, silent = true, desc = "Toggle floating terminal" }
 )
 
+-- Turn off noice
+-- map("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss noice message"})
+
 -- Lazy Package Manager
 require("config.lazy")
 require("config.options")
