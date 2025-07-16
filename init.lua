@@ -57,6 +57,9 @@ vim.filetype.add({
 
 local map = vim.keymap.set
 
+-- avante recommendations
+vim.opt.laststatus = 3
+
 -- Navigate vim panels with hjkl
 map("n", "<c-k>", "wincmd k<CR>")
 map("n", "<c-j>", "wincmd j<CR>")
