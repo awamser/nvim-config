@@ -31,7 +31,7 @@ return {
 				filetypes = { "swift", "objc", "objcpp", "cuda", "proto" },
 				-- capabilities = capabilities,
 				capabilities = vim.tbl_extend("force", capabilities, {
-					worksapce = {
+					workspace = {
 						didChangeWatchedFiles = {
 							dynamicRegistration = true,
 						},

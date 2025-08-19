@@ -13,6 +13,7 @@ return {
 				json = { "prettier" },
 				markdown = { "prettier" },
 				rust = { "rustfmt", lsp_format = "fallback" },
+				swift = { "swift_format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
