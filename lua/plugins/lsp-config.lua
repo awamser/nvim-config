@@ -18,18 +18,24 @@ return {
 		config = function()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({
+			vim.lsp.config.lua_ls = {
+				cmd = { "lua-language-server" },
+				filetypes = { "lua" },
+				root_markers = { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml" },
 				capabilities = capabilities,
-			})
+			}
 
-			lspconfig.html.setup({
+			vim.lsp.config.html = {
+				cmd = { "vscode-html-language-server", "--stdio" },
+				filetypes = { "html" },
+				root_markers = { "package.json", ".git" },
 				capabilities = capabilities,
-			})
+			}
 
-			lspconfig.sourcekit.setup({
+			vim.lsp.config.sourcekit = {
+				cmd = { "sourcekit-lsp" },
 				filetypes = { "swift", "objc", "objcpp", "cuda", "proto" },
-				-- capabilities = capabilities,
+				root_markers = { "Package.swift", ".git" },
 				capabilities = vim.tbl_extend("force", capabilities, {
 					workspace = {
 						didChangeWatchedFiles = {
@@ -37,7 +43,12 @@ return {
 						},
 					},
 				}),
-			})
+			}
+
+			-- Enable the language servers
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("html")
+			vim.lsp.enable("sourcekit")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

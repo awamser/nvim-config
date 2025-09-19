@@ -10,22 +10,9 @@ return {
 		local null_ls = require("null-ls")
 		null_ls.setup({
 			sources = {
-				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.diagnostics.swiftlint,
 				require("none-ls.diagnostics.eslint_d"),
 			},
-		})
-
-		vim.keymap.set("n", "<leader>gf", function()
-			vim.lsp.buf.format({ async = true })
-		end, {})
-
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = "*.swift",
-			callback = function()
-				vim.lsp.buf.format({ async = false })
-			end,
 		})
 	end,
 }
