@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "html" },
+				ensure_installed = { "lua_ls", "html", "pyright", "mypy", "ruff", "black" },
 			})
 		end,
 	},
@@ -21,7 +21,15 @@ return {
 			vim.lsp.config.lua_ls = {
 				cmd = { "lua-language-server" },
 				filetypes = { "lua" },
-				root_markers = { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml" },
+				root_markers = {
+					".luarc.json",
+					".luarc.jsonc",
+					".luacheckrc",
+					".stylua.toml",
+					"stylua.toml",
+					"selene.toml",
+					"selene.yml",
+				},
 				capabilities = capabilities,
 			}
 
@@ -30,6 +38,12 @@ return {
 				filetypes = { "html" },
 				root_markers = { "package.json", ".git" },
 				capabilities = capabilities,
+			}
+
+			vim.lsp.config.pyright = {
+				-- on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = { "python" },
 			}
 
 			vim.lsp.config.sourcekit = {
